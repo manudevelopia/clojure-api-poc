@@ -1,5 +1,5 @@
-(ns api.user-service
-  (:require [api.db :as db]
+(ns api.adapters.db.user-repository
+  (:require [api.adapters.db.db :as db]
             [clojure.tools.logging :as log]))
 
 (defn get-user [username]
@@ -25,4 +25,3 @@
                  from meeknu.users
                  where is_active = ?"
                 active]))
-

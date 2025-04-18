@@ -1,14 +1,15 @@
-(ns api.db
-  (:require [next.jdbc :as jdbc]
+(ns api.adapters.db.db
+  (:require [api.env :as env]
+            [next.jdbc :as jdbc]
             [next.jdbc.result-set :as rs]))
 
 (def db-spec
   {:dbtype   "postgresql"
-   :dbname   "koyebdb"
-   :host     "ep-patient-term-a23fmx3b.eu-central-1.pg.koyeb.app"
-   :port     5432
-   :user     "admin"
-   :password "UZcg2mPYnky0"})
+   :dbname   (env/get-env :DBNAME)
+   :host     (env/get-env :HOST)
+   :port     (env/get-env :PORT)
+   :user     (env/get-env :USER)
+   :password (env/get-env :PASSWORD)})
 
 (def datasource (jdbc/get-datasource db-spec))
 
