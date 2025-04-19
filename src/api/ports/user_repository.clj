@@ -1,5 +1,5 @@
 (ns api.ports.user-repository)
 
-(defprotocol UserRepository
+(defprotocol UserRepositoryProtocol
   (get-user [this username])
   (get-all-users [this active]))
