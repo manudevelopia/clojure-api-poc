@@ -1,10 +1,5 @@
-(ns api.ports.user-repository
-  (:require [api.adapters.db.user-repository :as repository])
-  )
+(ns api.ports.user-repository)
 
-(defn get-user [username]
-  (repository/get-user username))
-
-(defn get-all-users [active]
-  (repository/get-all-users active))
-
+(defprotocol UserRepository
+  (get-user [this username])
+  (get-all-users [this active]))
