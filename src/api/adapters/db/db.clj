@@ -18,4 +18,6 @@
 (defn execute! [sql]
   (jdbc/execute! datasource sql default-opts))
 
+(defn execute-one! [sql]
+  (jdbc/execute-one! datasource sql default-opts))
 

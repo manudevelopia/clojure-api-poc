@@ -7,23 +7,17 @@
   repo/ProductRepositoryProtocol
   (all [_]
     (log/info "Fetching all products")
-    (db/execute! ["select p_id id
-                         ,p_name name
+    (db/execute! ["select p_name name
                          ,p_description description
                          ,p_sku sku
-                         ,p_sys_created_at sys_created_at
-                         ,p_sys_updated_at sys_updated_at
-                         from shop.products"]))
+                   from shop.products"]))
   (by-sku [_ sku]
     (log/info "Fetching product with sku" sku)
-    (db/execute! ["select p_id id
-                         ,p_name name
-                         ,p_description description
-                         ,p_sku sku
-                         ,p_sys_created_at sys_created_at
-                         ,p_sys_updated_at sys_updated_at
-                         from shop.products
-                         where p_sku = ?" sku])))
+    (db/execute-one! ["select p_name name
+                             ,p_description description
+                             ,p_sku sku
+                       from shop.products
+                       where p_sku = ?" sku])))
 
 (defn product-repository []
   (->ProductRepository))

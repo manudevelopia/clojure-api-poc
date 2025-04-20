@@ -7,7 +7,7 @@
   repo/UserRepositoryProtocol
   (get-user [_ username]
     (log/info "Fetching user" username)
-    (db/execute! ["select id
+    (db/execute-one! ["select id
                      ,username
                      ,email
                      ,is_active
