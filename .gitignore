@@ -3,3 +3,5 @@ target
 .idea
 .cpcache
 .nrepl-port
+.clj-kondo
+.lsp
