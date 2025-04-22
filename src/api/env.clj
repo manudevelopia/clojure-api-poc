@@ -2,6 +2,10 @@
   (:require [clojure.java.io :as io]
             [clojure.string :as string]))
 
+(defn env
+  [k & [default]]
+  (or (System/getenv k) default))
+
 (defonce ^:private parsed-env (atom nil))
 
 (defn- parse-line [line]
