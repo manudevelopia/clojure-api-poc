@@ -3,11 +3,11 @@
             [api.ports.user-repository :as user-repo]
             [clojure.tools.logging :as log]))
 
-(defn get-user [username]
-  (log/info "Fetching user" username)
-  (user-repo/get-user (db/user-repository) username))
+(defn get-user [name]
+  (log/info "Fetching user" name)
+  (user-repo/by-name (db/user-repository) name))
 
 (defn get-all-users [active]
   (log/info "Fetching all users")
-  (user-repo/get-all-users (db/user-repository) active))
+  (user-repo/all (db/user-repository) active))
 

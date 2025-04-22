@@ -7,8 +7,8 @@
 (defn start-server []
   (doto (Javalin/create)
     (.get "/hello" (fn [ctx] (.result ctx "Hello World!")))
-    (.get "/users/{username}" user-handler/user)
-    (.get "/users" user-handler/users)
+    (.get "/users/{username}" user-handler/by-name)
+    (.get "/users" user-handler/all)
     (.get "/products" product-handler/all)
     (.get "/products/{sku}" product-handler/by-sku)
     (.start 7000)))

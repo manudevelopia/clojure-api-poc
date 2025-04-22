@@ -6,5 +6,5 @@
   (json/build-response ctx (product-service/all)))
 
 (defn by-sku [ctx]
-  (let [name (.pathParam ctx "sku")]
-    (json/build-response ctx (product-service/by-sku name))))
+  (let [sku (.pathParam ctx "sku")]
+    (json/build-response ctx (product-service/by-sku sku))))
