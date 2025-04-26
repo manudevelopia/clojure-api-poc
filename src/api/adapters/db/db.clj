@@ -5,11 +5,11 @@
 
 (def db-spec
   {:dbtype   "postgresql"
-   :dbname   (env/get-env :DBNAME)
-   :host     (env/get-env :HOST)
-   :port     (env/get-env :PORT)
-   :user     (env/get-env :USER)
-   :password (env/get-env :PASSWORD)})
+   :dbname   (env/env "DBNAME")
+   :host     (env/env "HOST")
+   :port     (env/env "PORT")
+   :user     (env/env "USER")
+   :password (env/env "PASSWORD")})
 
 (def datasource (jdbc/get-datasource db-spec))
 

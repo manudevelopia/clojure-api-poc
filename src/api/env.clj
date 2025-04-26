@@ -3,8 +3,8 @@
             [clojure.string :as string]))
 
 (defn env
-  [k & [default]]
-  (or (System/getenv k) default))
+  [key & [default]] (or (System/getenv key) default)
+  [key] (System/getenv key))
 
 (defonce ^:private parsed-env (atom nil))
 
