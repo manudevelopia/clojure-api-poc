@@ -5,9 +5,8 @@
 
 (defn get-user [name]
   (log/info "Fetching user" name)
-  (user-repo/by-name (db/user-repository) name))
+  (user-repo/by-name (db/->UserRepository) name))
 
 (defn get-all-users [active]
   (log/info "Fetching all users")
-  (user-repo/all (db/user-repository) active))
-
+  (user-repo/all (db/->UserRepository) active))

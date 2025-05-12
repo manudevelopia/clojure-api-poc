@@ -26,6 +26,3 @@
                from meeknu.users
                where username = ?"
                       name])))
-
-(defn user-repository []
-  (->UserRepository))

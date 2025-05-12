@@ -17,6 +17,3 @@
                              ,p_sku sku
                        from shop.products
                        where p_sku = ?" sku])))
-
-(defn product-repository []
-  (->ProductRepository))

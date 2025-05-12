@@ -5,8 +5,8 @@
 
 (defn all []
   (log/info "Fetching all products")
-  (product-repo/all (db/product-repository)))
+  (product-repo/all (db/->ProductRepository)))
 
 (defn by-sku [sku]
   (log/info "Fetching product with sku" sku)
-  (product-repo/by-sku (db/product-repository) sku))
+  (product-repo/by-sku (db/->ProductRepository) sku))
