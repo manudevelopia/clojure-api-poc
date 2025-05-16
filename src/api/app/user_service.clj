@@ -1,6 +1,6 @@
 (ns api.app.user-service
   (:require [api.adapters.db.user-repository :as db]
-            [api.ports.user-repository :as user-repo]
+            [api.ports.user-ports :as user-repo]
             [clojure.tools.logging :as log]))
 
 (defn get-user [name]

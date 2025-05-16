@@ -1,6 +1,6 @@
 (ns api.adapters.db.product-repository
   (:require [api.adapters.db.db :as db]
-            [api.ports.product-repository :as repo]
+            [api.ports.product-ports :as repo]
             [clojure.tools.logging :as log]))
 
 (defrecord ProductRepository [] repo/ProductRepositoryProtocol

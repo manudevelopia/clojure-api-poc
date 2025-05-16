@@ -1,6 +1,6 @@
 (ns api.app.product-service
   (:require [api.adapters.db.product-repository :as db]
-            [api.ports.product-repository :as product-repo]
+            [api.ports.product-ports :as product-repo]
             [clojure.tools.logging :as log]))
 
 (defn all []

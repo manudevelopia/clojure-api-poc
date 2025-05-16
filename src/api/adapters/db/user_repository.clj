@@ -1,6 +1,6 @@
 (ns api.adapters.db.user-repository
   (:require [api.adapters.db.db :as db]
-            [api.ports.user-repository :as repo]
+            [api.ports.user-ports :as repo]
             [clojure.tools.logging :as log]))
 
 (defrecord UserRepository [] repo/UserRepositoryProtocol

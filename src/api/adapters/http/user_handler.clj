@@ -1,11 +1,13 @@
 (ns api.adapters.http.user-handler
   (:require [api.adapters.http.common :as json]
-            [api.app.user-service :as user-service]))
+            [api.app.user-service :as user-service]
+            [api.ports.user-ports :as user-handler]))
 
-(defn all [ctx]
-  (let [active (.queryParam ctx "active")]
-    (json/build-response ctx (user-service/get-all-users (parse-boolean (or active "true"))))))
+(defrecord UserHandler [] user-handler/UserHandlerProtocol
+  (all-users [_ ctx]
+    (let [active (.queryParam ctx "active")]
+      (json/build-response ctx (user-service/get-all-users (parse-boolean (or active "true"))))))
 
-(defn by-name [ctx]
-  (let [name (.pathParam ctx "username")]
-    (json/build-response ctx (user-service/get-user name))))
+  (user-by-name [_ ctx]
+    (let [name (.pathParam ctx "username")]
+      (json/build-response ctx (user-service/get-user name)))))

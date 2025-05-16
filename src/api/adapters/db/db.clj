@@ -5,7 +5,7 @@
 
 (def db-spec
   {:dbtype   "postgresql"
-   :dbname   (env/get-value "DATABASE_DBNAME")
+   :dbname   (env/get-value "DATABASE_NAME")
    :host     (env/get-value "DATABASE_HOST")
    :port     (env/get-value "DATABASE_PORT")
    :user     (env/get-value "DATABASE_USER")

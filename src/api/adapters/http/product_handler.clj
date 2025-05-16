@@ -1,10 +1,12 @@
 (ns api.adapters.http.product-handler
   (:require [api.adapters.http.common :as json]
-            [api.app.product-service :as product-service]))
+            [api.app.product-service :as product-service]
+            [api.ports.product-ports :as product-ports]))
 
-(defn all [ctx]
-  (json/build-response ctx (product-service/all)))
+(defrecord ProductHandler [] product-ports/ProductHandlerProtocol
+  (all-products [_ ctx]
+    (json/build-response ctx (product-service/all)))
 
-(defn by-sku [ctx]
-  (let [sku (.pathParam ctx "sku")]
-    (json/build-response ctx (product-service/by-sku sku))))
+  (product-by-sku [_ ctx]
+    (let [sku (.pathParam ctx "sku")]
+      (json/build-response ctx (product-service/by-sku sku)))))
