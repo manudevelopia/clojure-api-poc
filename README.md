@@ -1,5 +1,12 @@
 
+Clojure api PoC
 
+```
+docker build -f docker/Dockerfile -t clojure-api-poc .
+docker run --env-file .env -p 7000:7000 clojure-api-poc:latest
+```
+
+```
 my-api/
 ├── deps.edn
 ├── .env
@@ -27,3 +34,4 @@ my-api/
 └── test/
 └── my_api/
 └── user_test.clj
+```
