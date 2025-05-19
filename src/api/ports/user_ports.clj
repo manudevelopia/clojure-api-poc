@@ -1,9 +1,5 @@
 (ns api.ports.user-ports)
 
-(defprotocol UserHandlerProtocol
-  (all-users [this ctx])
-  (user-by-name [this ctx]))
-
-(defprotocol UserRepositoryProtocol
-  (all [this active])
-  (by-name [this username]))
+(defprotocol UserProtocol
+  (all [this arg0])
+  (by-name [this arg0]))

@@ -3,7 +3,7 @@
             [api.ports.product-ports :as repo]
             [clojure.tools.logging :as log]))
 
-(defrecord ProductRepository [] repo/ProductRepositoryProtocol
+(defrecord ProductRepository [] repo/ProductProtocol
   (all [_]
     (log/info "Fetching all products")
     (db/execute! ["select p_name name

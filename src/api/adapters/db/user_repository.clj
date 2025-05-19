@@ -3,7 +3,7 @@
             [api.ports.user-ports :as repo]
             [clojure.tools.logging :as log]))
 
-(defrecord UserRepository [] repo/UserRepositoryProtocol
+(defrecord UserRepository [] repo/UserProtocol
   (all [_ active]
     (log/info "Fetching all users")
     (db/execute! ["select id

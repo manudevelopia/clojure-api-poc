@@ -3,11 +3,11 @@
             [api.app.user-service :as user-service]
             [api.ports.user-ports :as user-handler]))
 
-(defrecord UserHandler [] user-handler/UserHandlerProtocol
-  (all-users [_ ctx]
+(defrecord UserHandler [] user-handler/UserProtocol
+  (all [_ ctx]
     (let [active (.queryParam ctx "active")]
       (json/build-response ctx (user-service/get-all-users (parse-boolean (or active "true"))))))
 
-  (user-by-name [_ ctx]
+  (by-name [_ ctx]
     (let [name (.pathParam ctx "username")]
       (json/build-response ctx (user-service/get-user name)))))
