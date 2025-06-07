@@ -22,5 +22,5 @@
                :uber-file jar-file
                :basis     basis
                :main      main
-               :manifest {"Main-Class" "api.core"}})
+               :manifest  {"Main-Class" "api.core"}})
       (println "Built" jar-file))
