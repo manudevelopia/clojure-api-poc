@@ -1,5 +1,6 @@
 (ns build
-  (:require [clojure.tools.build.api :as b]))
+  (:require [clojure.java.shell :as shell]
+            [clojure.tools.build.api :as b]))
 
 (def lib 'api/app)
 (def version "0.0.1")
@@ -24,3 +25,12 @@
                :main      main
                :manifest  {"Main-Class" "api.core"}})
       (println "Built" jar-file))
+
+(defn docker [_]
+      (println "Building Docker image " (name lib))
+      (uber nil)
+      (let [{:keys [exit out err]}
+            (shell/sh "docker" "build" "-t" (name lib) "." "-f" "docker/Dockerfile")]
+           (println "Docker build output:" out)
+           (when (not= exit 0)
+                 (throw (ex-info "Docker build failed" {:error err})))))
