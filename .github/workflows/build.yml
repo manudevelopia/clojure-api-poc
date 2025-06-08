@@ -15,7 +15,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: ConorMacBride/install-package@master
+      - uses: ConorMacBride/install-package@v1.1.0
         with:
           apt: rlwrap
       - uses: actions/checkout@master
@@ -44,6 +44,4 @@ jobs:
       - name: Publish slimjar image built on DockerHub
         run: docker push manudevelopia/clojure-api-poc
       - name: Deploy image to Koyeb
-        uses: koyeb/action-git-deploy@v1
-        with:
-          docker: manudevelopia/clojure-api-poc:latest
+        run: koyeb service redeploy clojure-api-poc/clojure-api-poc
