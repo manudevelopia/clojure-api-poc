@@ -1,4 +1,4 @@
-(ns api.app.product-service
+(ns api.application.product-service
   (:require [api.adapters.db.product-repository :as db]
             [api.ports.product-ports :as product-repo]
             [clojure.tools.logging :as log]))

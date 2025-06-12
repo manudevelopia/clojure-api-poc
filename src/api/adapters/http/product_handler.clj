@@ -1,6 +1,6 @@
 (ns api.adapters.http.product-handler
   (:require [api.adapters.http.common :as json]
-            [api.app.product-service :as product-service]
+            [api.application.product-service :as product-service]
             [api.ports.product-ports :as product-ports]))
 
 (defrecord ProductHandler [] product-ports/ProductProtocol

@@ -1,6 +1,6 @@
 (ns api.adapters.http.user-handler
   (:require [api.adapters.http.common :as json]
-            [api.app.user-service :as user-service]
+            [api.application.user-service :as user-service]
             [api.ports.user-ports :as user-handler]))
 
 (defrecord UserHandler [] user-handler/UserProtocol

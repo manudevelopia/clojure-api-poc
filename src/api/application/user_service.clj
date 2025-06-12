@@ -1,4 +1,4 @@
-(ns api.app.user-service
+(ns api.application.user-service
   (:require [api.adapters.db.user-repository :as db]
             [api.ports.user-ports :as user-repo]
             [clojure.tools.logging :as log]))
