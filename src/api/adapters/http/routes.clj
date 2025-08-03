@@ -8,8 +8,15 @@
   (:import (io.javalin Javalin))
   (:gen-class))
 
+(defn enableCors [ctx]
+  (.header ctx "Access-Control-Allow-Origin" "*")
+  (.header ctx "Access-Control-Allow-Methods" "GET, POST, PUT, DELETE, OPTIONS")
+  (.header ctx "Access-Control-Allow-Headers" "Content-Type, Authorization")
+  (.header ctx "Access-Control-Max-Age" "3600"))
+
 (defn start-server []
   (doto (Javalin/create)
+    (.before (fn [ctx] (enableCors ctx)))
     (.get "/hello" (fn [ctx] (.result ctx "Hello World!")))
     (.get "/users" (fn [ctx] (user-ports/all (user-handler/->UserHandler) ctx)))
     (.get "/users/{username}" (fn [ctx] (user-ports/by-name (user-handler/->UserHandler) ctx)))
